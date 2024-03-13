@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Art Assets/Menus/Title Screen/Backgrounds/Large Black Spikey Label/Title_Screen_Label_Upscale.png" type="Texture" id=1]
+[ext_resource path="res://Art Assets/Menus/Title Screen/Backgrounds/Grey Checker Scroll/Axl_Background_Upscale.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/PixelifySans-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/CharacterSelect.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Scroll"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "BlackLabel"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="CharacterSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="GreyCheckerBG" type="Sprite" parent="Node2D"]
+position = Vector2( -4, -39 )
+scale = Vector2( 0.854, 0.854 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+frame = 1
+
+[node name="GreyCheckerBGAnim" type="AnimationPlayer" parent="Node2D/GreyCheckerBG"]
+autoplay = "Scroll"
+anims/Scroll = SubResource( 1 )
+
+[node name="BottomBlackLabel" type="Sprite" parent="Node2D"]
+position = Vector2( 1365, -667 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 4
+frame = 1
+
+[node name="BottomBlackLabelAnim" type="AnimationPlayer" parent="Node2D/BottomBlackLabel"]
+autoplay = "BlackLabel"
+anims/BlackLabel = SubResource( 2 )
+
+[node name="CharSelectToSave" type="Button" parent="."]
+margin_left = 19.0
+margin_top = 532.0
+margin_right = 222.0
+margin_bottom = 580.0
+custom_fonts/font = SubResource( 3 )
+text = "Back to Save Select  "
+flat = true
+
+[connection signal="pressed" from="CharSelectToSave" to="." method="_on_CharSelectToSave_pressed"]
