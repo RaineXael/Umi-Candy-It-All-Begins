@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Lofi Tracks to Kiss Girls To.mp3-f44a2cf855a1a15626c2b31c10ec8e53.mp3str"
+
+[deps]
+
+source_file="res://Music and Sound Effects/Music/Opening Menus/Lofi Tracks to Kiss Girls To.mp3"
+dest_files=[ "res://.import/Lofi Tracks to Kiss Girls To.mp3-f44a2cf855a1a15626c2b31c10ec8e53.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
