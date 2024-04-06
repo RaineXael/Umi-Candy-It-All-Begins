@@ -228,7 +228,6 @@ anims/Label1Anim = SubResource( 1 )
 position = Vector2( 301, 274 )
 scale = Vector2( 4, 4 )
 script = ExtResource( 4 )
-follow_range = 70
 
 [node name="CandyCollision" type="CollisionShape2D" parent="CandyPlayer"]
 position = Vector2( 9.75, -21 )
@@ -258,6 +257,7 @@ shape = SubResource( 7 )
 [node name="UmiSprite" type="Sprite" parent="UmiPlayer"]
 texture = ExtResource( 3 )
 hframes = 38
+frame = 5
 
 [node name="UmiOverworldAnim" type="AnimationPlayer" parent="UmiPlayer/UmiSprite"]
 anims/UmiBackwardWalk = SubResource( 3 )
@@ -265,5 +265,3 @@ anims/UmiForwardWalk = SubResource( 4 )
 anims/UmiIdleAnim = SubResource( 12 )
 anims/UmiLeftWalk = SubResource( 5 )
 anims/UmiRightWalk = SubResource( 6 )
-
-[connection signal="animation_started" from="UmiPlayer/UmiSprite/UmiOverworldAnim" to="UmiPlayer" method="_on_UmiOverworldAnim_animation_started"]

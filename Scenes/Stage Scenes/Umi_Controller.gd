@@ -18,6 +18,8 @@ func get_input():
 	if Input.is_action_pressed("Player_Up"):
 		velocity.y -= 1
 		$UmiSprite/UmiOverworldAnim.play("UmiBackwardWalk")
+	if velocity == Vector2():
+		$UmiSprite/UmiOverworldAnim.stop(true)
 	velocity = velocity.normalized() * speed
 
 func _physics_process(_delta):

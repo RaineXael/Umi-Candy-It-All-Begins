@@ -2,13 +2,15 @@ extends KinematicBody2D
 onready var umi = $'../UmiPlayer'
 
 var speed = 300
-export (int) var follow_range = 100
+export (int) var follow_range = 50
 
 var velocity = Vector2()
 
 var last_position = Vector2()
 var target_position = Vector2()
 
+func _ready():
+	target_position = umi.global_position
 
 func get_input():
 	velocity = Vector2()
@@ -18,6 +20,7 @@ func get_input():
 	velocity = target_position - global_position
 	if velocity.length() < follow_range:
 		velocity = Vector2()
+		$CandySprite/CandyOverworldAnim.stop(true)
 	else:
 		match int(round(velocity.angle() / PI * 2)):
 			0:
