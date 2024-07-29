@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="CombatArena" type="Node2D"]
+
+[node name="Arena" type="Node2D" parent="."]
+
+[node name="CombatManager" type="Node2D" parent="."]

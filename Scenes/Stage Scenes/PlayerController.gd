@@ -1,9 +1,12 @@
 extends KinematicBody2D
 
 export (int) var speed = 300
+export (int) var idle_start = 10
 
 enum {UMI, CANDY}
 var selected_character = UMI
+
+var can_move = true
 
 var player_sprites
 var player_characters
@@ -12,6 +15,7 @@ var prev_pos = [Vector2(0,0),Vector2(1,1),Vector2(2,2),Vector2(3,3),Vector2(4,4)
 var pos_ptr = 0
 var prev_dir
 var follow_distance = 100
+var idle_time = 0
 
 var velocity = Vector2()
 
@@ -19,7 +23,7 @@ func _ready():
 	player_sprites = [$UmiSprite/UmiOverworldAnim, $CandySprite/CandyOverworldAnim]
 	player_characters = [$UmiSprite, $CandySprite]
 
-func get_input():
+func get_input(_delta):
 	velocity = Vector2()
 	if Input.is_action_pressed("Player_Right"):
 		velocity.x += 1
@@ -40,18 +44,24 @@ func get_input():
 		player_characters[CANDY].global_position = global_position
 	player_characters[selected_character].z_index = 1
 	
-	move_party(velocity)
+	move_party(velocity, _delta)
 	
 
 func _physics_process(_delta):
-	get_input()
-	velocity = move_and_slide(velocity)
+	if (can_move):
+		get_input(_delta)
+		velocity = move_and_slide(velocity)
 	
-func move_party(velocity):
+func move_party(velocity, _delta):
 	if (velocity.length() == 0):
-		player_sprites[UMI].play("IdleAnim")
+		if (idle_time >= idle_start):
+			player_sprites[UMI].play("IdleAnim")
+		else: 
+			player_sprites[UMI].stop()
 		player_sprites[CANDY].stop()
+		idle_time += _delta
 	else:
+		idle_time = 0
 		var dir = int(round(velocity.angle() / PI * 2))
 		var other_char = (selected_character + 1) % party_size
 		if dir != prev_dir:
@@ -90,3 +100,7 @@ func play_animation(animationPlayer, dir):
 				animationPlayer.play("ForwardWalk")
 			-1:
 				animationPlayer.play("BackwardWalk")
+
+
+func _on_CyberSentinel_battle_started():
+	can_move = false
