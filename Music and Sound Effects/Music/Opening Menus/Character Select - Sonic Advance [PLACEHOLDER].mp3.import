@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Character Select - Sonic Advance [PLACEHOLDER].mp3-73f2f759c1fb0fd0c1ec3f98fd957358.mp3str"
+uid="uid://c38hj34q34uao"
+path="res://.godot/imported/Character Select - Sonic Advance [PLACEHOLDER].mp3-73f2f759c1fb0fd0c1ec3f98fd957358.mp3str"
 
 [deps]
 
 source_file="res://Music and Sound Effects/Music/Opening Menus/Character Select - Sonic Advance [PLACEHOLDER].mp3"
-dest_files=[ "res://.import/Character Select - Sonic Advance [PLACEHOLDER].mp3-73f2f759c1fb0fd0c1ec3f98fd957358.mp3str" ]
+dest_files=["res://.godot/imported/Character Select - Sonic Advance [PLACEHOLDER].mp3-73f2f759c1fb0fd0c1ec3f98fd957358.mp3str"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

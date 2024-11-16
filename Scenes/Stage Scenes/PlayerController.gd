@@ -1,7 +1,7 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export (int) var speed = 300
-export (int) var idle_start = 10
+@export var speed = 300
+@export var idle_start = 10
 
 enum {UMI, CANDY}
 var selected_character = UMI
@@ -17,10 +17,10 @@ var prev_dir
 var follow_distance = 100
 var idle_time = 0
 
-var velocity = Vector2()
+
 
 func _ready():
-	player_sprites = [$UmiSprite/UmiOverworldAnim, $CandySprite/CandyOverworldAnim]
+	player_sprites = [$UmiSprite, $CandySprite/CandyOverworldAnim]
 	player_characters = [$UmiSprite, $CandySprite]
 
 func get_input(_delta):
@@ -50,7 +50,7 @@ func get_input(_delta):
 func _physics_process(_delta):
 	if (can_move):
 		get_input(_delta)
-		velocity = move_and_slide(velocity)
+		move_and_slide()
 	
 func move_party(velocity, _delta):
 	if (velocity.length() == 0):

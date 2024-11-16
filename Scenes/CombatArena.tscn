@@ -1,4 +1,4 @@
-[gd_scene format=2]
+[gd_scene format=3 uid="uid://b6nlu25dp61ns"]
 
 [node name="CombatArena" type="Node2D"]
 
