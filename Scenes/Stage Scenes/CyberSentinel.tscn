@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cqc3bi1okwvv4"]
 
 [ext_resource type="PackedScene" uid="uid://dgy3ck7da4eiw" path="res://Scenes/Prefabs/overworld_player.tscn" id="2_m48kv"]
-[ext_resource type="PackedScene" uid="uid://bs5o2owwglw7v" path="res://Scenes/Prefabs/level_intro.tscn" id="4_el8xg"]
+[ext_resource type="Texture2D" uid="uid://3gy74adxrjd5" path="res://Other Icons/Discord_Logo.png" id="4_q74vc"]
 [ext_resource type="Script" path="res://Scenes/Stage Scenes/Area2D.gd" id="5"]
 [ext_resource type="Script" path="res://Scenes/Stage Scenes/CyberSentinel.gd" id="7"]
 
@@ -13,7 +13,13 @@ script = ExtResource("7")
 
 [node name="OverworldPlayer" parent="." instance=ExtResource("2_m48kv")]
 
+[node name="Camera2D" type="Camera2D" parent="OverworldPlayer"]
+position = Vector2(-70, -67)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
 [node name="BattleTrigger" type="Area2D" parent="."]
+position = Vector2(229, 92)
 script = ExtResource("5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleTrigger"]
@@ -21,10 +27,13 @@ position = Vector2(30, 33.5)
 shape = SubResource("14")
 
 [node name="Sprite" type="Sprite2D" parent="BattleTrigger"]
-position = Vector2(-8, -7)
+position = Vector2(-7, -4)
 scale = Vector2(76, 83)
 
-[node name="LevelIntro" parent="." instance=ExtResource("4_el8xg")]
+[node name="Sprite2D" type="Sprite2D" parent="BattleTrigger"]
+position = Vector2(-96, 12)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_q74vc")
 
 [connection signal="battle_start" from="BattleTrigger" to="." method="_enter_battle"]
 [connection signal="body_entered" from="BattleTrigger" to="BattleTrigger" method="_on_Area2D_body_entered"]

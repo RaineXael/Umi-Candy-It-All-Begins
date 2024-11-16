@@ -62,7 +62,6 @@ autoplay = "Label1"
 
 [node name="StageOpeningLabel2" type="Sprite2D" parent="."]
 position = Vector2(204, 296)
-scale = Vector2(4, 4)
 texture = ExtResource("2_p5ore")
 hframes = 3
 vframes = 8
