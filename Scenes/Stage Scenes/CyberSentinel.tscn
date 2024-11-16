@@ -1,23 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqc3bi1okwvv4"]
+[gd_scene load_steps=8 format=3 uid="uid://cqc3bi1okwvv4"]
 
 [ext_resource type="PackedScene" uid="uid://dgy3ck7da4eiw" path="res://Scenes/Prefabs/overworld_player.tscn" id="2_m48kv"]
 [ext_resource type="PackedScene" uid="uid://bs5o2owwglw7v" path="res://Scenes/Prefabs/level_intro.tscn" id="4_el8xg"]
 [ext_resource type="Texture2D" uid="uid://3gy74adxrjd5" path="res://Other Icons/Discord_Logo.png" id="4_q74vc"]
 [ext_resource type="Script" path="res://Scenes/Stage Scenes/Area2D.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://bh30g3kx7lhmn" path="res://Scenes/Prefabs/overworld_follower.tscn" id="6_1rf5r"]
 [ext_resource type="Script" path="res://Scenes/Stage Scenes/CyberSentinel.gd" id="7"]
 
 [sub_resource type="RectangleShape2D" id="14"]
 size = Vector2(80, 87)
 
 [node name="CyberSentinel" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("7")
 
 [node name="OverworldPlayer" parent="." instance=ExtResource("2_m48kv")]
+y_sort_enabled = true
 
 [node name="Camera2D" type="Camera2D" parent="OverworldPlayer"]
-position = Vector2(-70, -67)
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
+physics_interpolation_mode = 2
+y_sort_enabled = true
+position_smoothing_speed = 8.0
+editor_draw_drag_margin = true
 
 [node name="BattleTrigger" type="Area2D" parent="."]
 position = Vector2(229, 92)
@@ -37,6 +41,11 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_q74vc")
 
 [node name="LevelIntro" parent="." instance=ExtResource("4_el8xg")]
+
+[node name="Node2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_1rf5r")]
+y_sort_enabled = true
+player = NodePath("../OverworldPlayer")
+delay_frames = 18
 
 [connection signal="battle_start" from="BattleTrigger" to="." method="_enter_battle"]
 [connection signal="body_entered" from="BattleTrigger" to="BattleTrigger" method="_on_Area2D_body_entered"]

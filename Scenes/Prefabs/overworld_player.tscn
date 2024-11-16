@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bq6nd8e18oev3" path="res://Art Assets/Characters/Playable Characters/Umi/Spritesheets/UmiOverworldSpritesheet.png" id="2_mst0d"]
 
 [sub_resource type="RectangleShape2D" id="13"]
-size = Vector2(25, 25)
+size = Vector2(25, 17.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2m7fl"]
 atlas = ExtResource("2_mst0d")
@@ -170,14 +170,12 @@ animations = [{
 }]
 
 [node name="OverworldPlayer" type="CharacterBody2D"]
-position = Vector2(100, 100)
 script = ExtResource("1_7wijq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-72, -52)
+position = Vector2(-3, 16.75)
 shape = SubResource("13")
 
 [node name="UmiSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-69, -66)
 sprite_frames = SubResource("SpriteFrames_cqr7d")
 animation = &"walk_down"
