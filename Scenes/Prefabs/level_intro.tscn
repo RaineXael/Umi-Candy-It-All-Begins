@@ -1,86 +1,101 @@
-[gd_scene load_steps=7 format=3 uid="uid://bs5o2owwglw7v"]
+[gd_scene load_steps=9 format=3 uid="uid://bs5o2owwglw7v"]
 
 [ext_resource type="Texture2D" uid="uid://duy80nmkiuly5" path="res://Art Assets/Stages and Tiles/Stage Openings/StageOpeningLabel2.png" id="1_gfi7b"]
+[ext_resource type="Script" path="res://Scenes/Prefabs/level_intro.gd" id="1_tj4u7"]
 [ext_resource type="Texture2D" uid="uid://b2oml6bup6eux" path="res://Art Assets/Stages and Tiles/Stage Openings/StageOpeningLabel1.png" id="2_p5ore"]
+[ext_resource type="FontFile" uid="uid://bs1r8bay62wo8" path="res://Fonts/PixelifySans-Medium.ttf" id="4_j62ei"]
 
-[sub_resource type="Animation" id="2"]
-resource_name = "Label1"
-length = 3.8
+[sub_resource type="Animation" id="Animation_oquxg"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("../RibbonTop:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 5, 4, 3, 2, 1, 0, 0, 0, 0, 0, 0, 2, 3, 4, 5, 6, 6]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, 91)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RibbonSide:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(169, 148)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_555rw"]
-_data = {
-"Label1": SubResource("2")
-}
-
-[sub_resource type="Animation" id="1"]
-resource_name = "Label1Anim"
-length = 3.8
+[sub_resource type="Animation" id="Animation_xs7qs"]
+resource_name = "intro"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("../RibbonTop:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 0, 3, 9, 12, 15, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 18, 15, 12, 9, 6, 3, 0, 1]
+"times": PackedFloat32Array(0, 0.566667, 3.36667, 4),
+"transitions": PackedFloat32Array(0.406126, 1, 0.435275, 0.406126),
+"update": 0,
+"values": [Vector2(58, -110), Vector2(58, 80), Vector2(58, 90), Vector2(58, -110)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RibbonSide:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 3.36667, 4),
+"transitions": PackedFloat32Array(0.574349, 1, 0.5, 0.574349),
+"update": 0,
+"values": [Vector2(500, 148), Vector2(169, 148), Vector2(166, 148), Vector2(500, 148)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcysv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_caoeb"]
 _data = {
-"Label1Anim": SubResource("1")
+"RESET": SubResource("Animation_oquxg"),
+"intro": SubResource("Animation_xs7qs")
 }
 
-[node name="LevelIntro" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_r1h3t"]
+font = ExtResource("4_j62ei")
+font_size = 11
 
-[node name="StageOpeningLabel1" type="Sprite2D" parent="."]
-position = Vector2(585, 299)
-scale = Vector2(4, 4)
-texture = ExtResource("1_gfi7b")
-vframes = 7
-frame = 6
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_tj4u7")
 
-[node name="StageOpeningLabel1" type="AnimationPlayer" parent="StageOpeningLabel1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath(".")
 libraries = {
-"": SubResource("AnimationLibrary_555rw")
+"": SubResource("AnimationLibrary_caoeb")
 }
-autoplay = "Label1"
+autoplay = "intro"
 
-[node name="StageOpeningLabel2" type="Sprite2D" parent="."]
-position = Vector2(204, 296)
+[node name="RibbonTop" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(73, 91)
 texture = ExtResource("2_p5ore")
-hframes = 3
-vframes = 8
-frame = 21
 
-[node name="StageOpeningLabel2" type="AnimationPlayer" parent="StageOpeningLabel2"]
-libraries = {
-"": SubResource("AnimationLibrary_xcysv")
-}
-autoplay = "Label1Anim"
+[node name="RibbonSide" type="Sprite2D" parent="."]
+position = Vector2(169, 148)
+texture = ExtResource("1_gfi7b")
 
-[node name="StageOpeningName" type="Sprite2D" parent="."]
-
-[node name="StageOpeningName" type="AnimationPlayer" parent="StageOpeningName"]
-
-[node name="StageOpeningCharacterUmi" type="Sprite2D" parent="."]
-
-[node name="StageOpeningCharacterUmi" type="AnimationPlayer" parent="StageOpeningCharacterUmi"]
-
-[node name="StageOpeningCharacterCandy" type="Sprite2D" parent="."]
-
-[node name="StageOpeningCharacterCandy" type="AnimationPlayer" parent="StageOpeningCharacterCandy"]
+[node name="Label" type="Label" parent="RibbonSide"]
+offset_left = -6.0
+offset_top = -9.0
+offset_right = 90.0
+offset_bottom = 14.0
+text = "Long Name Mc Gee"
+label_settings = SubResource("LabelSettings_r1h3t")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
