@@ -9,6 +9,10 @@ enum Directions { UP, DOWN, LEFT, RIGHT }
 var previous_direction = Directions.DOWN
 
 var moving = false
+
+const character_sprites = ["res://Animations/overworld_actors/players/overworld_umi.tres", 
+"res://Animations/overworld_actors/players/overworld_candy.tres"]
+
 func _physics_process(delta: float) -> void:
 	if player:
 		position = player.get_last_previous_position(delay_frames, position)
@@ -19,29 +23,28 @@ func _physics_process(delta: float) -> void:
 		if moving: 
 			animator.play('walk_up')
 		else:
-			animator.stop()
-			animator.frame = 4
+			stop_animator()
 	elif direction == Directions.DOWN:
 		if moving: 
 			animator.play('walk_down')
 		else:
-			animator.stop()
-			animator.frame = 4
+			stop_animator()
 	elif direction == Directions.LEFT:
 		if moving: 
 			animator.play('walk_left')
 		else:
-			animator.stop()
-			animator.frame = 4
+			stop_animator()
 	elif direction == Directions.RIGHT:
 		if moving: 
 			animator.play('walk_right')
 		else:
-			animator.stop()
-			animator.frame = 4
+			stop_animator()
 	previous_position = position
 	previous_direction = direction
-
+	
+func stop_animator():
+	animator.stop()
+	animator.frame = 5
 #returns which direction the obj was moving based on current and previous pos
 func determine_direction(previous_position: Vector2, current_position: Vector2) -> int:
 	var movement_vector = current_position - previous_position

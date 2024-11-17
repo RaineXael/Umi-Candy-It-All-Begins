@@ -1,11 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bh30g3kx7lhmn"]
 
 [ext_resource type="Script" path="res://Scenes/Prefabs/overworld_follower.gd" id="1_vguep"]
-[ext_resource type="SpriteFrames" path="res://Animations/overworld_actors/players/overworld_candy.tres" id="2_uhtum"]
+[ext_resource type="SpriteFrames" uid="uid://dt6bmch61tg40" path="res://Animations/overworld_actors/players/overworld_candy.tres" id="2_uhtum"]
 
 [node name="OverworldFollower" type="Node2D"]
 script = ExtResource("1_vguep")
 
 [node name="UmiSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 21)
 sprite_frames = ExtResource("2_uhtum")
 animation = &"walk_down"
+offset = Vector2(0, -21)

@@ -1,7 +1,11 @@
 class_name OverworldPlayer
 extends CharacterBody2D
 
-const SPEED = 160.0
+@export_category('Movement Variables')
+var SPEED = 160.0
+
+
+
 @onready var animator = $UmiSprite
 enum directions{UP, DOWN, LEFT, RIGHT}
 var last_direction:directions = directions.DOWN
@@ -9,8 +13,11 @@ var moving = false
 #for followers
 const MAX_POSITIONS = 100
 var prev_positions = []
-
 @onready var initial_pos = position
+const character_sprites = ["res://Animations/overworld_actors/players/overworld_umi.tres", 
+"res://Animations/overworld_actors/players/overworld_candy.tres"]
+
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -18,8 +25,16 @@ func _physics_process(delta: float) -> void:
 	handle_animations()
 	update_previous_positions()
 	
-	move_and_slide()
+	#Testing character switching (without follower)
+	if Input.is_action_just_pressed("Player_Switch_Umi"):
+		switch_character('umi')
+	if Input.is_action_just_pressed("Player_Switch_Candy"):
+		switch_character('candy')
 	
+	
+	move_and_slide()
+
+
 func handle_movement():
 	var direction := Vector2(Input.get_axis("Player_Left", "Player_Right"), Input.get_axis("Player_Up", "Player_Down"))
 	
@@ -51,15 +66,25 @@ func handle_animations():
 		moving = true
 	else:
 		animator.stop()
-		animator.frame = 4
+		animator.frame = 5
 		moving = false
 	
+func switch_character(char:String):
+	#Switches the sprite to any of the characters.
+	#For now, just changes the sprite
+	if char.to_lower() == 'umi':
+		animator.sprite_frames = load(character_sprites[0])
+	elif char.to_lower() == 'candy':
+		animator.sprite_frames = load(character_sprites[1])
+	#The other 2 chars aren't present in the demo so they can't be added
+	else:
+		printerr('Invalid Character Name.')
 
+#Position saving logic for followers
 func get_last_previous_position(offset: int, pos:Vector2) -> Vector2: 
 	if prev_positions.is_empty() or offset >= prev_positions.size():
 		return pos
 	return prev_positions[max(0, prev_positions.size() - 1 - offset)]
-
 func update_previous_positions() -> void:
 	# Add the current position to the array of positions, removing old ones
 	if moving: 

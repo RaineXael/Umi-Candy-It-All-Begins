@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://8cla2c28veq4"]
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://dt6bmch61tg40"]
 
 [ext_resource type="Texture2D" uid="uid://drrpeb88pkopq" path="res://Art Assets/Characters/Playable Characters/Candy/Spritesheets/CandyOverworldSpritesheet.png" id="1_h56jp"]
 
@@ -10,6 +10,10 @@ region = Rect2(0, 60, 60, 60)
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 120, 60, 60)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycx4d"]
+atlas = ExtResource("1_h56jp")
+region = Rect2(0, 0, 60, 60)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2o1vg"]
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 180, 60, 60)
@@ -17,10 +21,6 @@ region = Rect2(0, 180, 60, 60)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tega0"]
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 240, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ycx4d"]
-atlas = ExtResource("1_h56jp")
-region = Rect2(0, 0, 60, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4nk8g"]
 atlas = ExtResource("1_h56jp")
@@ -30,6 +30,10 @@ region = Rect2(0, 960, 60, 60)
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 1020, 60, 60)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bmdf"]
+atlas = ExtResource("1_h56jp")
+region = Rect2(0, 900, 60, 60)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6aov"]
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 1080, 60, 60)
@@ -37,10 +41,6 @@ region = Rect2(0, 1080, 60, 60)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0p1c5"]
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 1140, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4bmdf"]
-atlas = ExtResource("1_h56jp")
-region = Rect2(0, 900, 60, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjlkm"]
 atlas = ExtResource("1_h56jp")
@@ -50,6 +50,10 @@ region = Rect2(0, 660, 60, 60)
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 720, 60, 60)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xinyi"]
+atlas = ExtResource("1_h56jp")
+region = Rect2(0, 600, 60, 60)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mred4"]
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 780, 60, 60)
@@ -57,10 +61,6 @@ region = Rect2(0, 780, 60, 60)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fph8w"]
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 840, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xinyi"]
-atlas = ExtResource("1_h56jp")
-region = Rect2(0, 600, 60, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmj6s"]
 atlas = ExtResource("1_h56jp")
@@ -70,6 +70,10 @@ region = Rect2(0, 360, 60, 60)
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 420, 60, 60)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bt1q"]
+atlas = ExtResource("1_h56jp")
+region = Rect2(0, 300, 60, 60)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_708oq"]
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 480, 60, 60)
@@ -77,10 +81,6 @@ region = Rect2(0, 480, 60, 60)
 [sub_resource type="AtlasTexture" id="AtlasTexture_umhov"]
 atlas = ExtResource("1_h56jp")
 region = Rect2(0, 540, 60, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1bt1q"]
-atlas = ExtResource("1_h56jp")
-region = Rect2(0, 300, 60, 60)
 
 [resource]
 animations = [{
@@ -90,6 +90,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ktyd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycx4d")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2o1vg")
@@ -112,6 +115,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_k06cc")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4bmdf")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_w6aov")
 }, {
 "duration": 1.0,
@@ -132,6 +138,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_17fk7")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xinyi")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mred4")
 }, {
 "duration": 1.0,
@@ -150,6 +159,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ijlx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bt1q")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_708oq")

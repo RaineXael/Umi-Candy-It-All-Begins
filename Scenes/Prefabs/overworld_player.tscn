@@ -14,5 +14,8 @@ position = Vector2(-3, 16.75)
 shape = SubResource("13")
 
 [node name="UmiSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 19)
 sprite_frames = ExtResource("2_k18n4")
-animation = &"walk_down"
+animation = &"walk_up"
+frame_progress = 0.433621
+offset = Vector2(3, -19)
