@@ -45,7 +45,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.566667, 3.36667, 4),
 "transitions": PackedFloat32Array(0.406126, 1, 0.435275, 0.406126),
 "update": 0,
-"values": [Vector2(58, -110), Vector2(58, 80), Vector2(58, 90), Vector2(58, -110)]
+"values": [Vector2(78, -110), Vector2(78, 160), Vector2(78, 170), Vector2(78, -110)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -54,10 +54,10 @@ tracks/1/path = NodePath("../RibbonSide:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.533333, 3.36667, 4),
+"times": PackedFloat32Array(0, 0.566667, 3.36667, 4),
 "transitions": PackedFloat32Array(0.574349, 1, 0.5, 0.574349),
 "update": 0,
-"values": [Vector2(500, 148), Vector2(169, 148), Vector2(166, 148), Vector2(500, 148)]
+"values": [Vector2(700, 220), Vector2(190, 220), Vector2(184, 220), Vector2(700, 220)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_caoeb"]
@@ -84,16 +84,19 @@ autoplay = "intro"
 z_index = 1
 position = Vector2(73, 91)
 texture = ExtResource("2_p5ore")
+offset = Vector2(0, -81.895)
 
 [node name="RibbonSide" type="Sprite2D" parent="."]
 position = Vector2(169, 148)
 texture = ExtResource("1_gfi7b")
+offset = Vector2(158.032, 2)
 
 [node name="Label" type="Label" parent="RibbonSide"]
-offset_left = -6.0
-offset_top = -9.0
-offset_right = 90.0
-offset_bottom = 14.0
+offset_left = 4.0
+offset_top = -7.0
+offset_right = 100.0
+offset_bottom = 16.0
+pivot_offset = Vector2(286, 55)
 text = "Long Name Mc Gee"
 label_settings = SubResource("LabelSettings_r1h3t")
 horizontal_alignment = 1
